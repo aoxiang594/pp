@@ -70,8 +70,17 @@ class itemAction extends frontendAction {
      * 点击去购买
      */
     public function tgo() {
-        $url = $this->_get('to', 'base64_decode');
-        redirect($url);
+//		$url = $this->_get('to', 'base64_decode');
+//        redirect($url);
+		// 修改详细页去淘宝链接过长 20120115 tina
+        $item_id = $this->_get('to', 'intval');
+		if($item_id) {
+			$item_mod = M('item');
+			$item_url = $item_mod->where(array('id' => $item_id))->getField('url');
+			redirect($item_url);
+		} else {
+			$this->_404();
+		}
     }
 
     /**
