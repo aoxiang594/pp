@@ -14,7 +14,7 @@
             <div class="note_box clearfix">
                 <div id="J_item_gallery" class="show_body">
                     <div class="J_item img_show">
-                        <a target="_blank" href="__ROOT__/?m=item&a=tgo&to={:base64_encode($item['url'])}">
+                        <a target="_blank" href="{:U('item/tgo', array('to'=>$item['id']))}">
                             <div id="J_img_zoom" class="img_zoom"><img alt="{$item.title}" class="J_decode_img" data-uri="{:base64_encode(attach(get_thumb($img_list[0]['url'], '_b'), 'item'))}" jqimg="{:attach($img_list[0]['url'], 'item')}"></div>
                         </a>
                         <a href="javascript:;" class="J_joinalbum addalbum_btn" data-id="{$item.id}"></a>
